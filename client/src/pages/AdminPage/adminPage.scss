@@ -1,0 +1,112 @@
+.admin_page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .overlay-loading {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    .spinner {
+      display: inline-block;
+      position: fixed;
+      height: 50px;
+      width: 50px;
+      border: 0.25em solid var(--color-text);
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spinner-border 0.75s linear infinite;
+    }
+  }
+
+  * {
+    font-family: var(--secondary-font);
+  }
+  h2 {
+    margin-bottom: 20px;
+    color: var(--color-text);
+  }
+  form {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--color-selectbox);
+    padding: 1.4rem 2rem;
+    border-radius: 10px;
+    color: var(--color-text);
+    box-shadow: 0px 4px 30px var(--color-shadow);
+    gap: 20px;
+    h3 {
+      margin-bottom: 20px;
+      align-self: start;
+    }
+
+    .form--group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      input {
+        width: 100%;
+        height: 35px;
+        border-radius: 6px;
+        outline: none;
+        padding: 0 10px;
+        border: 1px solid var(--color-selectbox) !important;
+        &[type="file"] {
+          border: none !important;
+        }
+      }
+      #file-upload-button {
+        display: none;
+      }
+      label {
+        align-self: start;
+      }
+    }
+    button{
+        width: 200px;
+        height: 30px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+  }
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Select announcement photo";
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.custom-file-input:hover::before {
+  border-color: var(--color-primary);
+}
+.custom-file-input:active::before {
+  color: var(--color-primary);
+}

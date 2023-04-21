@@ -1,0 +1,59 @@
+@import "../../global.scss";
+
+.theme_btn {
+  border: 1px solid var(--color-text);
+  outline: none;
+  position: absolute;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  opacity: 0.3;
+  transition: all 0.3s linear;
+  border-radius: 8px;
+
+  @include small{
+    z-index: 8;
+  }
+
+  @include extra-large {
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  &:hover {
+    opacity: 1;
+    background-color: var(--color-text-secondary);
+    &::after {
+      opacity: 1;
+      bottom: -10px;
+    }
+  }
+
+  &::after {
+    content: attr(data-theme);
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    transform: translateY(100%);
+    width: 100%;
+    height: 30px;
+    background-color: var(--color-text);
+    color: var(--color-light);
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    opacity: 0;
+    transition: all 0.1s linear;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    @include extra-large {
+      display: none;
+    }
+  }
+}

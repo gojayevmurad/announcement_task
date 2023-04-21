@@ -1,0 +1,100 @@
+@import "../../global.scss";
+
+// #region search bar
+.searchbar {
+  width: 830px;
+  height: 48px;
+  box-sizing: content-box;
+  display: inline-block;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  @include large{
+    width: 750px;
+  }
+
+  @include medium{
+    width: 550px;
+  }
+
+  @include small{
+    width: 100%;
+    input{
+      width: 80%!important;
+    }
+    button{
+      width: 20%!important;
+    }
+  }
+  
+  
+  button,
+  input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+  }
+  button {
+    width: 148px;
+    height: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    transition: 0.3s;
+
+    &:hover:not([disabled]) {
+      filter: contrast(1.4);
+      cursor: pointer;
+    }
+
+    &[disabled] {
+      background-color: #e0e0e0;
+    }
+
+    .loading {
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      border: 0.25em solid var(--color-light);
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spinner-border 0.75s linear infinite;
+    }
+  }
+  input {
+    width: 682px;
+    height: 100%;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    line-height: 24px;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    border: 1px solid var(--color--light-blue);
+    border-right: none !important;
+  }
+
+  i.fa-magnifying-glass {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    left: 1rem;
+    color: var(--color-text);
+  }
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// #endregion

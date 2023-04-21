@@ -1,0 +1,66 @@
+.sweetbox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #fff;
+  padding: 30px;
+  min-width: 400px;
+  transition: 0.2s;
+  z-index: 2;
+  border-radius: 0;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  opacity: 1;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 3px #a18888;
+
+  &.hidden {
+    transform: translate(-50%, -50%) scale(0.5);
+    z-index: -1;
+    opacity: 0;
+  }
+  .header {
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(69, 68, 68, 0.8588235294);
+  }
+  .content {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(69, 68, 68, 0.8588235294);
+  }
+
+  &__btn--ok {
+    background-color: #7066e0;
+    color: #fff;
+    border: none;
+    outline: 3px solid rgba(112, 102, 224, 0.4196078431);
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+  }
+  .sweetbox__btn--ok:hover {
+    background-color: #4135c4;
+  }
+}
+
+.sweetbox_overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(69, 68, 68, 0.2);
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,21 @@
+.filter {
+  position: sticky;
+  z-index: 2;
+  top: 20px;
+  left: 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #f3f4f5;
+  border-bottom: 1px solid #f3f4f5;
+  &__clear {
+    width: 120px;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}

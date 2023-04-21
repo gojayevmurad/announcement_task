@@ -1,0 +1,182 @@
+@import "../../global.scss";
+
+.products {
+  margin: 120px 0;
+  &--content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  &--filter {
+    @include extra-large {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      gap: 40px;
+      position: fixed;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      background-color: var(--color-background);
+      box-shadow: 0px 4px 30px var(--color-shadow);
+      padding: 1rem 3rem;
+      transition: 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+      .close {
+        display: inline-block !important;
+      }
+      &.hide {
+        left: -120%;
+      }
+      @include small{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .close {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: var(--color-text);
+      display: none;
+      align-self: flex-end;
+      justify-self: flex-start;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+  }
+
+  &--list {
+    &__main {
+      margin-bottom: 30px;
+      margin-top: 28px;
+      .product_item:not(:last-of-type) {
+        margin-bottom: 20px;
+        position: relative;
+        &::before {
+          content: "";
+          width: 100%;
+          height: 3px;
+          background-color: var(--color-line);
+          position: absolute;
+          bottom: -10px;
+        }
+      }
+    }
+
+    &_no-product {
+      p {
+        text-align: center;
+        color: var(--color-text);
+        font-size: 2rem;
+        font-family: var(--secondary-font);
+      }
+    }
+
+    &__pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      button {
+        border: none;
+        outline: none;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        &.current_page {
+          background-color: var(--color-primary);
+          color: var(--color-light);
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+
+  @include extra-large {
+    &.hide {
+      z-index: 9;
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}
+
+.hamburger {
+  position: relative;
+  height: 60px;
+  display: none;
+  @include extra-large {
+    display: inline-block;
+  }
+  .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .line {
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 10px;
+      background: var(--color-text);
+      &.line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      &.line2 {
+        transition: transform 0.2s ease-in-out;
+      }
+
+      &.line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+      }
+    }
+  }
+  .checkbox:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+  }
+  .checkbox:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+
+  .checkbox:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+  }
+}

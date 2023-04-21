@@ -1,0 +1,91 @@
+.login {
+  width: 600px;
+  height: 650px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-text);
+  color: var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 2rem;
+  border-radius: 14px;
+  box-shadow: 0px 4px 30px var(--color-shadow);
+
+  h2 {
+    font-size: 2rem;
+    font-family: var(--secondary-font);
+  }
+  &--group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+    label {
+      font-size: 1.2rem;
+      font-family: var(--secondary-font);
+    }
+    input {
+      padding: 1rem;
+      border: 0.5px solid var(--color-skeleton);
+      border-radius: 5px;
+      outline: none;
+      font-family: var(--secondary-font);
+    }
+  }
+
+  .error {
+    background-color: #ffdddf;
+    border: 1px solid #feb1b7;
+    padding: 10px 20px;
+    border-radius: 4px;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    overflow: hidden;
+    height: 41px;
+    &.hide {
+      opacity: 0;
+      animation: none;
+    }
+    p {
+      letter-spacing: 1px;
+      color: #000;
+    }
+  }
+
+  button {
+    width: 180px;
+    height: 40px;
+    border: 0.5px solid var(--color-text-secondary);
+    border-radius: 5px;
+    outline: none;
+    font-family: var(--secondary-font);
+    cursor: pointer;
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
